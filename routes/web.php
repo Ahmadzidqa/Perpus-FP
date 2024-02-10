@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +14,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+//Route untuk data buku
+Route::get('/buku', 'BukuController@bukutampil');
+Route::get('/buku/tambah', 'BukuController@bukutambah');
+Route::get('/buku/hapus/{id_buku}', 'BukuController@bukuhapus');
+Route::get('/buku/edit/{id_buku}', 'BukuController@bukuedit');
+
+//Route untuk data buku
+Route::get('/home', function(){return view('view_home');});
+
+//Route untuk data anggota
+Route::get('/anggota', 'AnggotaController@anggotatampil');
+
+//Route untuk data petugas
+Route::get('/petugas', 'PetugasController@petugastampil');
+
+//Route untuk data peminjaman
+Route::get('/pinjam', 'PinjamController@pinjamtampil');
